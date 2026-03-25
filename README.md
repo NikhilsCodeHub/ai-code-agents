@@ -15,9 +15,15 @@ The differentiator is no longer how well you code. **It's how well you design th
 ```
 ai-code-agents/
 ├── README.md                          # This file
+├── .claude
+│   └── agents
+│       ├── agile-scrum-manager.md         # Project Manager / Product Manager Agent
+│       ├── fastapi-scrum-developer.md     # API developer Agent
+│       ├── react-tailwind-ui-architect.md # ReactJS / UI developer Agent
+│       └── test-plan-executor.md          # Test/QA Engineer
 ├── product_requirements/              # Step 3-4: Blueprint phase
-│   ├── PRD.md                        # Product Requirements Document
-│   └── sprint_breakdown.md           # Sprint planning & dependencies
+│   ├── PRD.md                         # Product Requirements Document
+│   └── sprint_breakdown.md            # Sprint planning & dependencies
 ├── frontend/                          # Step 5-6: Frontend agent outputs
 │   ├── components/
 │   ├── pages/
@@ -58,17 +64,7 @@ This framework uses **specialized agents**, each with specific responsibilities 
 
 **Example Prompt:**
 ```
-You are a Senior Product Manager Agent specializing in Agile-Scrum frameworks.
-
-Your responsibilities:
-1. Generate comprehensive PRDs with use cases, user personas, and feature lists
-2. Break features into atomic user stories with clear acceptance criteria
-3. Identify edge cases and corner scenarios
-4. Create dependency diagrams showing feature prerequisites
-5. Maintain a sprint progress log in Markdown format
-6. Ensure all documentation stays in sync with development
-
-Output format: Structured Markdown with clear sections and checklists.
+@agile-scrum-manager please create PRD and Sprint Breakdown Plan based on the draft requirements.
 ```
 
 **When to Use:**
@@ -88,17 +84,7 @@ Output format: Structured Markdown with clear sections and checklists.
 
 **Example Prompt:**
 ```
-You are a Senior Frontend Engineer Agent specializing in modern web frameworks (React/Vue/Angular).
-
-Constraints:
-- Follow component composition principles (single responsibility)
-- Use design system tokens for consistency
-- Implement proper accessibility (WCAG 2.1 AA)
-- Write semantic HTML and maintainable CSS
-- Git commit after each feature completion
-- Update the sprint log with progress
-
-Output: Production-ready components with tests.
+@fastapi-scrum-developer please begin development of UserStory 2.1.3
 ```
 
 **When to Use:**
@@ -111,7 +97,7 @@ Output: Production-ready components with tests.
 
 **Responsibilities:**
 - Design and implement REST/GraphQL APIs
-- Implement business logic and algorithms
+- Implement business logic and algorithms in microservices.
 - Handle data validation and error handling
 - Manage authentication and authorization
 - Optimize database queries
@@ -119,18 +105,7 @@ Output: Production-ready components with tests.
 
 **Example Prompt:**
 ```
-You are a Senior Backend Engineer Agent specializing in API design and microservices.
-
-Constraints:
-- Follow REST/GraphQL design principles
-- Implement proper error handling and logging
-- Add input validation at all boundaries
-- Write efficient database queries (explain plans)
-- Implement caching strategies where appropriate
-- Git commit after each user story
-- Update sprint log with API contracts
-
-Output: Production-ready endpoints with performance metrics.
+@fastapi-scrum-developer please begin development of UserStory 2.1.1, Refer to the sprint_breakdown_plan.md and sprint_progress_log.md for details on UserStory and to track whats completed
 ```
 
 **When to Use:**
@@ -149,7 +124,7 @@ Output: Production-ready endpoints with performance metrics.
 - Plan for scalability
 - Document schema relationships
 
-**Example Prompt:**
+**Example Prompt To Create Database Agent:**
 ```
 You are a Database Architect Agent specializing in relational database design.
 
@@ -183,18 +158,7 @@ Output: Production-ready migrations with rollback plans.
 
 **Example Prompt:**
 ```
-You are a QA Engineer Agent specializing in test automation and quality assurance.
-
-Constraints:
-- Maintain >80% code coverage
-- Create independent verification tests (don't mock critical paths)
-- Test edge cases and error scenarios
-- Generate detailed test reports
-- Include performance benchmarks
-- Validate against acceptance criteria from PRD
-- Document test strategy and coverage gaps
-
-Output: Comprehensive test suite with verification reports.
+@test_plan_executor please refer to the sprint_breakdown_plan.md and sprint_progress_log.md, then generate Test plan scripts for UserStory 2.1.3
 ```
 
 **When to Use:**
@@ -213,7 +177,7 @@ Output: Comprehensive test suite with verification reports.
 - Monitor deployments
 - Ensure security and compliance
 
-**Example Prompt:**
+**Example Prompt To Create Devops Agent:**
 ```
 You are a DevOps Engineer Agent specializing in cloud infrastructure and CI/CD.
 
@@ -598,7 +562,7 @@ Follow these guardrails:
 
 1. **Clone the repository**
    ```bash
-   git clone <repo>
+   gh repo clone NikhilsCodeHub/ai-code-agents
    cd ai-code-agents
    ```
 
