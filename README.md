@@ -62,7 +62,7 @@ This framework uses **specialized agents**, each with specific responsibilities 
 - Create Feature Dependency Diagrams
 - Maintain sprint progress logs
 
-**Example Prompt:**
+**Example Usage:**
 ```
 @agile-scrum-manager please create PRD and Sprint Breakdown Plan based on the draft requirements.
 ```
@@ -82,9 +82,9 @@ This framework uses **specialized agents**, each with specific responsibilities 
 - Handle user interactions and validations
 - Ensure accessibility and performance
 
-**Example Prompt:**
+**Example Usage:**
 ```
-@fastapi-scrum-developer please begin development of UserStory 2.1.3
+@react-tailwind-ui-architect please begin development of UserStory 2.1.3
 ```
 
 **When to Use:**
@@ -103,7 +103,7 @@ This framework uses **specialized agents**, each with specific responsibilities 
 - Optimize database queries
 - Create service layer abstractions
 
-**Example Prompt:**
+**Example Usage:**
 ```
 @fastapi-scrum-developer please begin development of UserStory 2.1.1, Refer to the sprint_breakdown_plan.md and sprint_progress_log.md for details on UserStory and to track whats completed
 ```
@@ -156,7 +156,7 @@ Output: Production-ready migrations with rollback plans.
 - Validate compliance and security
 - Performance testing
 
-**Example Prompt:**
+**Example Usage:**
 ```
 @test_plan_executor please refer to the sprint_breakdown_plan.md and sprint_progress_log.md, then generate Test plan scripts for UserStory 2.1.3
 ```
